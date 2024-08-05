@@ -3,14 +3,11 @@ class House:
         self.name = name
         self.number_of_floors = n_of_floors
 
-
     def __len__(self):
         return self.number_of_floors
 
-
     def __str__(self):
         return f"Название: {self.name}, кол-во этажей: {self.number_of_floors}"
-
 
     def go_to(self, new_floor):
         assert new_floor == int(new_floor), 'Этаж должен быть целым числом.'
