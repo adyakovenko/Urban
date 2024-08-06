@@ -27,9 +27,7 @@ class Vehicle:
 
 
 class Sedan(Vehicle):
-    def __init__(self, owner, model, color, engine):
-        super().__init__(owner, model, color, engine)
-        self.__Passengers_LIMIT = 5
+    __Passengers_LIMIT = 5
 
 
 if __name__ == '__main__':
