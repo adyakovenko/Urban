@@ -41,7 +41,3 @@ p1.move(-5, 20)
 print(p1.get_pos())
 
 p1.voice()
-
-print(Horse.mro())
-print(Eagle.mro())
-print(Pegasus.mro())
