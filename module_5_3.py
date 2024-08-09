@@ -14,10 +14,10 @@ class House:
         return f"Название: {self.name}, кол-во этажей: {self.number_of_floors}"
 
     def __eq__(self, other):
-        return self.number_of_floors == other.number_of_floors
+        return isinstance(other, House) and self.number_of_floors == other.number_of_floors
 
     def __ne__(self, other):
-        return self.number_of_floors != other.number_of_floors
+        return not isinstance(other, House) or self.number_of_floors != other.number_of_floors
 
     def __lt__(self, other):
         return self.number_of_floors < other.number_of_floors
