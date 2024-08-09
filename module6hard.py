@@ -77,7 +77,8 @@ class Circle(Figure):
         self.__color = color
         self.__sides = side
         self.__filled = filled
-        super().__init__(self.__color, self.__sides, self.__filled, 1)
+        self.__sides_count = 1
+        super().__init__(self.__color, self.__sides, self.__filled, self.__sides_count)
         self.__radius = None if side is None else side / 2.0 / math.pi
 
     def get_square(self):
@@ -89,7 +90,8 @@ class Triangle(Figure):
         self.__color = color
         self.__sides = sides
         self.__filled = filled
-        super().__init__(self.__color, self.__sides, self.__filled, 3)
+        self.__sides_count = 3
+        super().__init__(self.__color, self.__sides, self.__filled, self.__sides_count)
         if self.__is_possible() is False:
             self.__sides = 1
         self.__height = max(self.get_heights())
@@ -131,7 +133,8 @@ class Cube(Figure):
         self.__color = color
         self.__sides = sides
         self.__filled = filled
-        super().__init__(self.__color, self.__sides, self.__filled, 12)
+        self.__sides_count = 12
+        super().__init__(self.__color, self.__sides, self.__filled, self.__sides_count)
 
     def get_volume(self):
         if is_number(self.__sides):
