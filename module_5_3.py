@@ -1,9 +1,14 @@
 def assert_integer(value):
-    assert isinstance(value, int), f'Value must be integer, not {type(value)}'
+    assert isinstance(value, int), f'Value type must be integer, not {type(value)}'
+
+
+def assert_House(value):
+    assert isinstance(value, House), f'Value type must be House, not {type(value)}'
 
 
 class House:
     def __init__(self, name, n_of_floors):
+        assert_integer(n_of_floors)
         self.name = name
         self.number_of_floors = n_of_floors
 
@@ -14,22 +19,25 @@ class House:
         return f"Название: {self.name}, кол-во этажей: {self.number_of_floors}"
 
     def __eq__(self, other):
-        return isinstance(other, House) and self.number_of_floors == other.number_of_floors
+        assert_House(other)
+        return self.number_of_floors == other.number_of_floors
 
     def __ne__(self, other):
-        return not isinstance(other, House) or self.number_of_floors != other.number_of_floors
+        return not self.__eq__(other)
 
     def __lt__(self, other):
+        assert_House(other)
         return self.number_of_floors < other.number_of_floors
 
     def __le__(self, other):
+        assert_House(other)
         return self.number_of_floors <= other.number_of_floors
 
     def __gt__(self, other):
-        return self.number_of_floors > other.number_of_floors
+        return not self.__le__(other)
 
     def __ge__(self, other):
-        return self.number_of_floors >= other.number_of_floors
+        return not self.__lt__(other)
 
     def __add__(self, value):
         assert_integer(value)
@@ -43,9 +51,7 @@ class House:
         return self.__add__(value)
 
     def __sub__(self, value):
-        assert_integer(value)
-        self.number_of_floors -= value
-        return self
+        return self.__add__(-value)
 
     def __isub__(self, value):
         return self.__sub__(value)
@@ -73,7 +79,7 @@ class House:
         return self.__floordiv__(value)
 
     def go_to(self, new_floor):
-        assert new_floor == int(new_floor), 'Этаж должен быть целым числом.'
+        assert_integer(new_floor)
         if new_floor < 1 or new_floor > self.number_of_floors:
             print('Такого этажа не существует')
         else:
