@@ -12,22 +12,21 @@ def is_good_string(name):
 
 def get_data_tree():
     data_tree = []
-    for i in os.walk('.'):
-        if is_good_path(i[0]):
-            branch = []
-            for name in i[2]:
+    for root, dirs, files in os.walk('.'):
+        if is_good_path(root):
+            root_files = []
+            for name in files:
                 if is_good_string(name):
-                    branch.append(name)
-            if len(branch) > 0:
-                data_tree.append([i[0], branch])
+                    root_files.append(name)
+            if len(root_files) > 0:
+                data_tree.append([root, root_files])
     return data_tree
 
 def print_files_info(project_path, data_tree):
-    for folder in data_tree:
-        if folder[1] != []:
-            for file in folder[1]:
-                val = folder[0][1::]
-                filepath = os.path.join(project_path, folder[0][2::], file)
+    for folder, files in data_tree:
+        if folder != []:
+            for file in files:
+                filepath = os.path.join(project_path, folder[2::], file)
                 filetime = os.path.getmtime(filepath)
                 formatted_time = time.strftime("%d.%m.%Y %H:%M", time.localtime(filetime))
                 filesize = os.path.getsize(filepath)
