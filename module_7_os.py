@@ -12,7 +12,7 @@ def is_good_string(name):
 
 def get_data_tree():
     data_tree = []
-    for root, dirs, files in os.walk('.'):
+    for root, _, files in os.walk('.'):
         if is_good_path(root):
             root_files = []
             for name in files:
