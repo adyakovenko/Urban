@@ -15,7 +15,6 @@ class Car:
         return True
         pass
 
-
     def __is_valid_numbers(self, numbers):
         if not isinstance(numbers, str):
             raise IncorrectVinNumber('Некорректный тип данных для номеров')
