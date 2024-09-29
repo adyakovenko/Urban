@@ -4,7 +4,7 @@ def print_params(a=1, b='строка', c=True):
 
 # ---------- task 1 ----------
 
-print_params('Невяное', 'преобразование', 'типов')
+print_params('Неявное', 'преобразование', 'типов')
 print_params('кажется', 'опасным?', )
 print_params(b=25)
 print_params(c=[1, 2, 3])
