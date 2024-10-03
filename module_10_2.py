@@ -37,3 +37,4 @@ if __name__ == '__main__':
     first_knight.join()
     second_knight.start()
     second_knight.join()
+    print('Все битвы закончились!')
