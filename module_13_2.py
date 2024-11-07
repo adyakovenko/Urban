@@ -3,14 +3,14 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.filters import Command
 import asyncio
 
-api = 'insert api here'
+api = ''
 bot = Bot(token=api)
 dp = Dispatcher(storage=MemoryStorage())
 
 
 @dp.message(Command('start'))
 async def start_message(message):
-    print('я бот помогающий здоровью')
+    print('Привет! Я бот помогающий твоему здоровью.')
 
 
 @dp.message()
