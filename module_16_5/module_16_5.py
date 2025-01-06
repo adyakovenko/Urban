@@ -19,12 +19,12 @@ class User(BaseModel):
     age: int
 
 
-users = [
-    User(user_id=1, username='UrbanUser', age=24),
-    User(user_id=2, username='UrbanTest', age=36),
-    User(user_id=3, username='Admin', age=42)
-]
-#users = []
+# users = [
+#     User(user_id=1, username='UrbanUser', age=24),
+#     User(user_id=2, username='UrbanTest', age=36),
+#     User(user_id=3, username='Admin', age=42)
+# ]
+users = []
 
 
 @app.get('/')
